@@ -7,7 +7,10 @@ In WASM when navigating to an external web page either programmatically or via a
 This does not happen in Windows, Android or iOS
 
 Expected behaviour
-When closing the web page navigate to the app should be responsive to user input
+After closing the web page navigated to, the app should be responsive to user input
+
+Steps to reproduce
+This app has one button and one hyperlink, navigate by either, close the web page navigated to and try and navigate again.
 
 Reported as
 Uno issue #11871
