@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "UnoWebNavigationIssue",
+  "display": "standalone",
+  "name": "UnoWebNavigationIssue",
+  "short_name": "UnoWebNavigationIssue",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}

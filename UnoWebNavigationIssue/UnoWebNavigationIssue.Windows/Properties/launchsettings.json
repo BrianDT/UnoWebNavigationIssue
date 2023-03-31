@@ -1,0 +1,10 @@
+{
+  "profiles": {
+	"UnoWebNavigationIssue.Windows (Package)": {
+	  "commandName": "MsixPackage"
+	},
+	"UnoWebNavigationIssue.Windows (Unpackaged)": {
+	  "commandName": "Project"
+	}
+  }
+}

@@ -1,0 +1,22 @@
+<Page x:Class="UnoWebNavigationIssue.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="using:UnoWebNavigationIssue"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+	<StackPanel HorizontalAlignment="Center"
+				VerticalAlignment="Center">
+		<TextBlock Text="Navigate to a Web Page" />
+
+        <Button Margin="20" Click="Button_Click">Tap to navigate</Button>
+
+        <TextBlock Text="OR" Margin="20" />
+        
+        <HyperlinkButton Content="www.visualsoftwaresystems.co.uk" NavigateUri="https://www.visualsoftwaresystemsltd.com" Margin="0,2,0,0" HorizontalAlignment="Left"
+                                    Foreground="{StaticResource FlyoutHyperlinkBrush}"/>
+
+   </StackPanel>
+</Page>
