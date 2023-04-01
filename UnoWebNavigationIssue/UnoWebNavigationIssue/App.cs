@@ -1,28 +1,44 @@
+// <copyright file="App.cs" company="Visual Software Systems Ltd.">Copyright (c) 2023. All rights reserved</copyright>
+
 namespace UnoWebNavigationIssue
 {
+    using System;
+    using Microsoft.UI.Xaml;
+    using Microsoft.UI.Xaml.Controls;
+    using Microsoft.UI.Xaml.Navigation;
+    using Application = Microsoft.UI.Xaml.Application;
+
+    /// <summary>
+    /// Provides application-specific behavior to supplement the default Application class.
+    /// </summary>
     public class App : Application
     {
-        public static Window _window;
+        private static Window window;
 
+        /// <summary>
+        /// Invoked when the application is launched normally by the end user.  Other entry points
+        /// will be used such as when the application is launched to open a specific file.
+        /// </summary>
+        /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
 #if NET6_0_OR_GREATER && WINDOWS && !HAS_UNO
-		_window = new Window();
+            window = new Window();
 #else
-            _window = Microsoft.UI.Xaml.Window.Current;
+            window = Microsoft.UI.Xaml.Window.Current;
 #endif
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (_window.Content is not Frame rootFrame)
+            if (window.Content is not Frame rootFrame)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
 
                 // Place the frame in the current Window
-                _window.Content = rootFrame;
+                window.Content = rootFrame;
 
-                rootFrame.NavigationFailed += OnNavigationFailed;
+                rootFrame.NavigationFailed += this.OnNavigationFailed;
             }
 
             if (rootFrame.Content == null)
@@ -34,7 +50,7 @@ namespace UnoWebNavigationIssue
             }
 
             // Ensure the current window is active
-            _window.Activate();
+            window.Activate();
         }
 
         /// <summary>
@@ -42,7 +58,7 @@ namespace UnoWebNavigationIssue
         /// </summary>
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new InvalidOperationException($"Failed to load {e.SourcePageType.FullName}: {e.Exception}");
         }

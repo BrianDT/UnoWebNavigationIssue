@@ -1,4 +1,5 @@
-﻿
+﻿// <copyright file="NavigationService.cs" company="Visual Software Systems Ltd.">Copyright (c) 2023. All rights reserved</copyright>
+
 namespace ServicesX
 {
     using System;
@@ -9,6 +10,9 @@ namespace ServicesX
     using System.Threading.Tasks;
     using ServiceInterfaces;
 
+    /// <summary>
+    /// Selected elements from a navigation service.
+    /// </summary>
     public class NavigationService : INavigationService
     {
         /// <summary>

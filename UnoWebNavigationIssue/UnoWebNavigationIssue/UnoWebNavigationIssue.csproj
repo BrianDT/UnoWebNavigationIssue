@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) or '$(EnableWindowsTargeting)' == 'true'">$(TargetFrameworks);net7.0-windows10.0.19041</TargetFrameworks>
 		<TargetFrameworks>$(TargetFrameworks);net7.0;</TargetFrameworks>
@@ -7,12 +7,14 @@
 		<GenerateLibraryLayout>true</GenerateLibraryLayout>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
+		<CodeAnalysisRuleSet>..\..\Vssl.ruleset</CodeAnalysisRuleSet>
 	</PropertyGroup>
 
-	<ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)'!='net7.0-windows10.0.19041.0'">
 		<PackageReference Include="Uno.WinUI" Version="4.8.15" />
+	</ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="Uno.Resizetizer" Version="1.0.2" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
 	</ItemGroup>
 
@@ -21,6 +23,10 @@
 			<ItemGroup>
 				<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230313.1" />
 				<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
+				<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+					<PrivateAssets>all</PrivateAssets>
+					<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+				</PackageReference>
 			</ItemGroup>
 
 			<ItemGroup>
@@ -59,5 +65,8 @@
 	  <ProjectReference Include="..\..\ServicesX\ServicesX.csproj" />
 	  <ProjectReference Include="..\..\ViewModelInterfaces\ViewModelInterfaces.csproj" />
 	  <ProjectReference Include="..\..\ViewModels\ViewModels.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PRIResource Include="**\*.resw" />
 	</ItemGroup>
 </Project>

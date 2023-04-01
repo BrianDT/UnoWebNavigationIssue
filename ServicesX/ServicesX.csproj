@@ -6,16 +6,21 @@
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
 	  <ImplicitUsings>disable</ImplicitUsings>
 	  <Nullable>disable</Nullable>
+	  <CodeAnalysisRuleSet>..\Vssl.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Uno.WinUI" Version="4.8.15" />
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)'!='net7.0-windows10.0.19041.0'">
+		<PackageReference Include="Uno.WinUI" Version="4.8.15" />
+	</ItemGroup>
   <Choose>
     <When Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
       <ItemGroup>
         <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230313.1" />
         <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
-      </ItemGroup>
+		  <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			  <PrivateAssets>all</PrivateAssets>
+			  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		  </PackageReference>
+	  </ItemGroup>
       <ItemGroup>
         <!--
 				If you encounter this error message:

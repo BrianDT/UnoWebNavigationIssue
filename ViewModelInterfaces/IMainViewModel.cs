@@ -4,8 +4,14 @@ namespace ViewModelInterfaces
 {
     using System.ComponentModel;
 
+    /// <summary>
+    /// The main view model.
+    /// </summary>
     public interface IMainViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Navigate to a predefined web site.
+        /// </summary>
         void NavigateToSampleSite();
     }
 }

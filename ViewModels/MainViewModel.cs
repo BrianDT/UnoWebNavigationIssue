@@ -2,24 +2,37 @@
 
 namespace ViewModels
 {
-    using ServiceInterfaces;
     using System;
     using System.ComponentModel;
     using System.Diagnostics;
     using System.Threading.Tasks;
+    using ServiceInterfaces;
     using ViewModelInterfaces;
 
+    /// <summary>
+    /// The main view model.
+    /// </summary>
     public class MainViewModel : IMainViewModel
     {
         private INavigationService navigationService;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
+        /// </summary>
+        /// <param name="navigationService">The navigation service.</param>
         public MainViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
         }
 
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Navigate to a predefined web site.
+        /// </summary>
         public void NavigateToSampleSite()
         {
             string name = "Author's web page";
@@ -32,7 +45,7 @@ namespace ViewModels
         /// </summary>
         /// <param name="sourceName">The name of the page</param>
         /// <param name="targetData">The web page to be embedded</param>
-        private void NavigateToExternalPage(string name, string targetData)
+        private void NavigateToExternalPage(string sourceName, string targetData)
         {
             try
             {

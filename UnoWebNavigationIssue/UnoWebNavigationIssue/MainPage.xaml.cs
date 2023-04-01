@@ -2,12 +2,20 @@
 
 namespace UnoWebNavigationIssue
 {
+    using Microsoft.UI.Xaml;
+    using Microsoft.UI.Xaml.Controls;
     using ServicesX;
     using ViewModelInterfaces;
     using ViewModels;
 
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
     public sealed partial class MainPage : Page
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainPage"/> class.
+        /// </summary>
         public MainPage()
         {
             this.InitializeComponent();
@@ -21,6 +29,11 @@ namespace UnoWebNavigationIssue
         /// </summary>
         public IMainViewModel VM => this.DataContext as IMainViewModel;
 
+        /// <summary>
+        /// Instigates a programatic navigation.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event args</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.VM.NavigateToSampleSite();
