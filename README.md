@@ -14,3 +14,6 @@ This app has one button and one hyperlink, navigate by either, close the web pag
 
 Reported as
 Uno issue #11871
+
+Updated to Uno 5.2.175
+Confirmed Resolved
